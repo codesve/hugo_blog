@@ -17,7 +17,7 @@
     <link rel="canonical" href="{{ .Permalink }}">
     {{ if .RSSlink }}<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />{{ end }}
 
-    <link rel="stylesheet" href="/static/css/style.css">
+    {{ template "chrome/head_includes.html" . }}
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>

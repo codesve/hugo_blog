@@ -2,120 +2,126 @@
 
 
 
- <html class="no-js" lang="zh"> 
+ <html class="no-js" lang="zh-cn"> 
 
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
 
-    <base href="http://blog.codesve.com/">
+    <base href="http://localhost:1313">
     <title>代码是根本</title>
-    <link rel="canonical" href="http://blog.codesve.com/">
-    <link href="http://blog.codesve.com/index.xml" rel="alternate" type="application/rss+xml" title="代码是根本" />
-    <link rel="stylesheet" href="http://blog.codesve.com/static/css/style.css">
+    <link rel="canonical" href="http://localhost:1313/">
+    <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="代码是根本" />
+
+    <link rel="stylesheet" href="http://localhost:1313/css/style.css">
+
 
   </head>
-  <body lang="zh">
 
-  <header id="header">
-    <figure>
-      <a href="http://blog.codesve.com/" border=0 id="logolink"><div class="icon-blog-codesve" id="logo"> </div></a>
-    </figure>
-    <div id="byline">by codesve</div>
-    <nav id="nav">
-	            <ul id="mainnav">
+  <body lang="zh-cn">
+    <header id="header">
+  <figure>
+    <a href="http://localhost:1313/" border=0 id="logolink"><div class="icon-blog-codesve" id="logo"> </div></a>
+  </figure>
+
+	<div id="byline">by codesve</div>
+  <nav id="nav">
+            <ul id="mainnav">
             <li>
-                <a href="http://blog.codesve.com/code/">
+                <a href="http://localhost:1313/code/">
                     <span class="icon"> <i aria-hidden="true" class="icon-code"></i></span>
                     <span> 代码 </span>
                 </a>
             </li>
             <li>
-                <a href="http://blog.codesve.com/dream/">
+                <a href="http://localhost:1313/dream/">
                     <span class="icon"> <i aria-hidden="true" class="icon-dream"></i></span>
                     <span> 瞎想 </span>
                 </a>
             </li>
             <li>
-                <a href="http://blog.codesve.com/sve">
+                <a href="http://localhost:1313/sve">
                     <span class="icon"> <i aria-hidden="true" class="icon-sve"></i></span>
                     <span> sve </span>
                 </a>
             </li>
         </ul>
 
-	            <ul id="social">
+            <ul id="social">
             
         </ul>
 
-    </nav>
+  </nav>
 </header>
 
-  <section id="main">
-    <div>
-     <h1 id="title">代码是根本</h1>
-      
-          <article class="post">
+    <section id="main" >
+      <div>
+       <div id="site_title">代码是根本</div>
+        
+            <article class="post">
     <header>
-      <h2><a href='http://blog.codesve.com/code/test-code'> </a> </h2>
-      <div class="post-meta">2008-01-01 00:00:00 - 100 Words </div>
+      <h2><a href='http://localhost:1313/code/test-code'> ubuntu 11.10安装ruby开发环境</a> </h2>
+      <div class="post-meta">2014-03-09 00:00:00 - 200 Words </div>
     </header>
 
-    test-code
+    这次安装又有一些变化，记录一下： 1.先装一些必要的依赖包： sudo apt-get install apache2 curl git libmysqlclient-dev mysql-server nodejs 2.安装RVM，命令有所变化了…… $ bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer) 这个命令是安装RVM。 echo ‘[[ -s &ldquo;$HOME/.rvm/scripts/rvm&rdquo; ]] &amp;&amp; . “$HOME/.rvm/scripts/rvm” # Load RVM function’ &gt;&gt; ~/.bash_profile 这个命令是把RVM加到环境变量中去。 source ~/.bash_profile 这个命令是重新载入环境变量。 如果上面这样做了以后，每次打开shell都要重新source ~/.bash_profile的话，就执行： echo ‘[[ -s &ldquo;$HOME/.rvm/scripts/rvm&rdquo; ]] &amp;&amp; . “$HOME/.rvm/scripts/rvm” # Load RVM function’ &gt;&gt; ~/.bashrc $ rvm requirements 这个命令是根据需要提示安装一些依赖包。比如Ruby就提示要执行以下命令： sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion 这样RVM就安装完成了。 3.安装Ruby rvm install 1.9.2 这会安装1.9.2版本的ruby，还可以执行rvm install 1.9.3安装更新版本。 rvm –default 1.9.2 这个命令是确定默认的ruby版本。 4.安装Rails gem install rails 还可以执行以下命令安装特定版本的rails gem install rails –version 3.1.0 如果安装了不同版本的rails，可以执行以下命令指定使用特定版本 rails 3.1.0 –version end.
     <footer>
-        <a href='http://blog.codesve.com/code/test-code'><nobr>阅读全文 →</nobr></a>
+        <a href='http://localhost:1313/code/test-code'><nobr>阅读全文 →</nobr></a>
     </footer>
 </article>
 
-      
-          <article class="post">
+        
+            <article class="post">
     <header>
-      <h2><a href='http://blog.codesve.com/dream/test-dream'> </a> </h2>
+      <h2><a href='http://localhost:1313/dream/test-dream'> </a> </h2>
       <div class="post-meta">2008-01-01 00:00:00 - 100 Words </div>
     </header>
 
     test dream
     <footer>
-        <a href='http://blog.codesve.com/dream/test-dream'><nobr>阅读全文 →</nobr></a>
+        <a href='http://localhost:1313/dream/test-dream'><nobr>阅读全文 →</nobr></a>
     </footer>
 </article>
 
-      
-          
-      
+        
+            
+        
+      </div>
+    </section>
+
+    <aside id="meta"> </aside>
+
+      <footer class="text-center">
+    <div>
+      <p class="footer-text">
+      Powered by <a href="http://hugo.spf13.com">Hugo</a>.
+          Hosted by <a href="http://github.com">github</a>.
+      </p>
     </div>
-  </section>
+    </footer>
+    <script type="text/javascript">
 
-  <aside id="meta"> </aside>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7131036-1']);
+    _gaq.push(['_trackPageview']);
 
-  <footer>
-  <div>
-    <p>
-    Powered by <a href="http://hugo.spf13.com">Hugo</a>.
-        Hosted by <a href="http://github.com">github</a>.
-    </p>
-  </div>
-</footer>
-<script type="text/javascript">
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+          'http://www') + '.google-analytics.com/ga.js';
+      ga.setAttribute('async', 'true');
+      document.documentElement.firstChild.appendChild(ga);
+    })();
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-7131036-1']);
-  _gaq.push(['_trackPageview']);
+    (function(){var j=function(a,b){return window.getComputedStyle?getComputedStyle(a).getPropertyValue(b):a.currentStyle[b]};var k=function(a,b,c){if(a.addEventListener)a.addEventListener(b,c,false);else a.attachEvent('on'+b,c)};var l=function(a,b){for(key in b)if(b.hasOwnProperty(key))a[key]=b[key];return a};window.fitText=function(d,e,f){var g=l({'minFontSize':-1/0,'maxFontSize':1/0},f);var h=function(a){var b=e||1;var c=function(){a.style.fontSize=Math.max(Math.min(a.clientWidth/(b*10),parseFloat(g.maxFontSize)),parseFloat(g.minFontSize))+'px'};c();k(window,'resize',c)};if(d.length)for(var i=0;i<d.length;i++)h(d[i]);else h(d);return d}})();
+    fitText(document.getElementById('title'), 1)
 
-  (function() {
-    var ga = document.createElement('script');
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
-        'http://www') + '.google-analytics.com/ga.js';
-    ga.setAttribute('async', 'true');
-    document.documentElement.firstChild.appendChild(ga);
-  })();
+    </script>
 
-(function(){var j=function(a,b){return window.getComputedStyle?getComputedStyle(a).getPropertyValue(b):a.currentStyle[b]};var k=function(a,b,c){if(a.addEventListener)a.addEventListener(b,c,false);else a.attachEvent('on'+b,c)};var l=function(a,b){for(key in b)if(b.hasOwnProperty(key))a[key]=b[key];return a};window.fitText=function(d,e,f){var g=l({'minFontSize':-1/0,'maxFontSize':1/0},f);var h=function(a){var b=e||1;var c=function(){a.style.fontSize=Math.max(Math.min(a.clientWidth/(b*10),parseFloat(g.maxFontSize)),parseFloat(g.minFontSize))+'px'};c();k(window,'resize',c)};if(d.length)for(var i=0;i<d.length;i++)h(d[i]);else h(d);return d}})();
-fitText(document.getElementById('title'), 1)
-
-</script>
+    <script src="http://localhost:1313/js/jquery-1.8.3.min.js"></script>
 </body>
 </html>
 

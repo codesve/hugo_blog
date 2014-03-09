@@ -1,18 +1,19 @@
-{{ template "chrome/header.html" . }}
-<body lang="en" itemscope itemtype="http://schema.org/Article">
-{{ template "chrome/subheader.html" . }}
-{{ $baseurl := .Site.BaseUrl }}
+	{{ template "chrome/header.html" . }}
+	<body lang="zh-cn" itemscope itemtype="http://schema.org/Article">
+		{{ template "chrome/subheader.html" . }}
 
-<section id="main">
-	<h1 id="title">{{ .Site.Title }}</h1>
-  <h2 itemprop="name" id="title">{{ .Title }}</h1>
-  <div>
-    <article itemprop="articleBody" id="content">
-   		{{ .Content }}
-    </article>
-  </div>
-</section>
+		{{ $baseurl := .Site.BaseUrl }}
 
-{{ template "chrome/meta_aside.html" . }}
+		<section id="main">
+			<div id="site_title">{{ .Site.Title }}</div>
+		  	<div itemprop="name" id="post_title">{{ .Title }}</div>
+		  	<div>
+			    <article itemprop="articleBody" id="content">
+			   		{{ .Content }}
+		    	</article>
+		  	</div>
+		</section>
 
-{{ template "chrome/footer.html" . }}
+		{{ template "chrome/meta_aside.html" . }}
+
+        {{ template "chrome/footer.html" }}
