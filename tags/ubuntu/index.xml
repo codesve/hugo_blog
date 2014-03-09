@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Recent Content on 代码是根本 </title>
-    <link>http://blog.codesve.com/index.xml</link>
+      <title>Ubuntu on 代码是根本 </title>
+    <link>http://blog.codesve.com/tags/ubuntu/index.xml</link>
     <language>zh-cn</language>
     <author>codesve</author>
     <rights>Copyright (c) 2014 - 2015, codesve; all rights reserved.</rights>
@@ -42,26 +42,6 @@ gem install rails –version 3.1.0
 如果安装了不同版本的rails，可以执行以下命令指定使用特定版本
 rails 3.1.0 –version
 end.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://blog.codesve.com/dream/test-dream</link>
-      <pubDate>2008-01-01 00:00:00</pubDate>
-      <author>codesve</author>
-      <guid>http://blog.codesve.com/dream/test-dream</guid>
-      <description>&lt;p&gt;test dream&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://blog.codesve.com/sve</link>
-      <pubDate>2008-01-01 00:00:00</pubDate>
-      <author>codesve</author>
-      <guid>http://blog.codesve.com/sve</guid>
-      <description>&lt;p&gt;about me.&lt;/p&gt;
 </description>
     </item>
     
