@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="zh"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="zh"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="zh"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh"> <!--<![endif]-->
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <base href="{{ .Site.BaseUrl }}">
+    <title>{{ .Site.Title }}</title>
+    <link rel="canonical" href="{{ .Permalink }}">
+    <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    <link rel="stylesheet" href="/static/css/style.css">
+
+  </head>
+  <body lang="zh">
+
+  {{ template "chrome/subheader.html" . }}
+
+  <section id="main">
+    <div>
+     <h1 id="title">{{ .Site.Title }}</h1>
+      {{ range first 10 .Data.Pages }}
+          {{ .Render "summary"}}
+      {{ end }}
+    </div>
+  </section>
+
+  <aside id="meta"> </aside>
+
+  {{ template "chrome/footer.html" }}

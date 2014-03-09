@@ -1,4 +1,3 @@
-hugo_blog
-=========
+# 代码是根本
 
-blog powered by hugo.
+本根的博客，codesve，代码是根本
