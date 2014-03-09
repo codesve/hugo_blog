@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
       <title>Dreams on 代码是根本 </title>
-    <link>http://localhost:1313/dream/index.xml</link>
+    <link>http://blog.codesve.com/dream/index.xml</link>
     <language>zh-cn</language>
     <author>codesve</author>
     <rights>Copyright (c) 2014 - 2015, codesve; all rights reserved.</rights>
@@ -10,10 +10,10 @@
     
     <item>
       <title></title>
-      <link>http://localhost:1313/dream/test-dream</link>
+      <link>http://blog.codesve.com/dream/test-dream</link>
       <pubDate>2008-01-01 00:00:00</pubDate>
       <author>codesve</author>
-      <guid>http://localhost:1313/dream/test-dream</guid>
+      <guid>http://blog.codesve.com/dream/test-dream</guid>
       <description>&lt;p&gt;test dream&lt;/p&gt;
 </description>
     </item>

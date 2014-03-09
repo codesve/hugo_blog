@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
       <title>Ubuntu on 代码是根本 </title>
-    <link>http://localhost:1313/tags/ubuntu/index.xml</link>
+    <link>http://blog.codesve.com/tags/ubuntu/index.xml</link>
     <language>zh-cn</language>
     <author>codesve</author>
     <rights>Copyright (c) 2014 - 2015, codesve; all rights reserved.</rights>
@@ -10,10 +10,10 @@
     
     <item>
       <title>ubuntu 11.10安装ruby开发环境</title>
-      <link>http://localhost:1313/code/test-code</link>
+      <link>http://blog.codesve.com/code/test-code</link>
       <pubDate>2014-03-09 00:00:00</pubDate>
       <author>codesve</author>
-      <guid>http://localhost:1313/code/test-code</guid>
+      <guid>http://blog.codesve.com/code/test-code</guid>
       <description>&lt;p&gt;这次安装又有一些变化，记录一下：
 1.先装一些必要的依赖包：
 sudo apt-get install apache2 curl git libmysqlclient-dev mysql-server nodejs
