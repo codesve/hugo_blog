@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Recent Content on 代码是根本 </title>
+    <link>http://localhost:1313/index.xml</link>
+    <language>zh-cn</language>
+    <author>codesve</author>
+    <rights>Copyright (c) 2014 - 2015, codesve; all rights reserved.</rights>
+    <updated>2014-03-09 00:00:00</updated>
+    
+    <item>
+      <title>ubuntu 11.10安装ruby开发环境</title>
+      <link>http://localhost:1313/code/test-code</link>
+      <pubDate>2014-03-09 00:00:00</pubDate>
+      <author>codesve</author>
+      <guid>http://localhost:1313/code/test-code</guid>
+      <description>&lt;p&gt;这次安装又有一些变化，记录一下：
+1.先装一些必要的依赖包：
+sudo apt-get install apache2 curl git libmysqlclient-dev mysql-server nodejs
+2.安装RVM，命令有所变化了……
+$ bash -s stable &amp;lt; &amp;lt;(curl -s &lt;a href=&#34;https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer&#34;&gt;https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer&lt;/a&gt;)
+这个命令是安装RVM。
+echo ‘[[ -s &amp;ldquo;$HOME/.rvm/scripts/rvm&amp;rdquo; ]] &amp;amp;&amp;amp; . “$HOME/.rvm/scripts/rvm” # Load RVM function’ &amp;gt;&amp;gt; ~/.bash_profile
+这个命令是把RVM加到环境变量中去。
+source ~/.bash_profile
+这个命令是重新载入环境变量。
+如果上面这样做了以后，每次打开shell都要重新source ~/.bash_profile的话，就执行：
+echo ‘[[ -s &amp;ldquo;$HOME/.rvm/scripts/rvm&amp;rdquo; ]] &amp;amp;&amp;amp; . “$HOME/.rvm/scripts/rvm” # Load RVM function’ &amp;gt;&amp;gt; ~/.bashrc
+$ rvm requirements
+这个命令是根据需要提示安装一些依赖包。比如Ruby就提示要执行以下命令：
+sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
+这样RVM就安装完成了。
+3.安装Ruby
+rvm install 1.9.2
+这会安装1.9.2版本的ruby，还可以执行rvm install 1.9.3安装更新版本。
+rvm –default 1.9.2
+这个命令是确定默认的ruby版本。
+4.安装Rails
+gem install rails
+还可以执行以下命令安装特定版本的rails
+gem install rails –version 3.1.0
+如果安装了不同版本的rails，可以执行以下命令指定使用特定版本
+rails 3.1.0 –version
+end.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/dream/test-dream</link>
+      <pubDate>2008-01-01 00:00:00</pubDate>
+      <author>codesve</author>
+      <guid>http://localhost:1313/dream/test-dream</guid>
+      <description>&lt;p&gt;test dream&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/sve</link>
+      <pubDate>2008-01-01 00:00:00</pubDate>
+      <author>codesve</author>
+      <guid>http://localhost:1313/sve</guid>
+      <description>&lt;p&gt;about me.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
