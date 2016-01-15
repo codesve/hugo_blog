@@ -10,7 +10,6 @@ categories:
 - nothing
 ---
 
-# 用r.js优化require/backbone前端项目
 
 ## 目的
 
