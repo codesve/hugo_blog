@@ -1,19 +1,9 @@
-	{{ template "chrome/header.html" . }}
-	<body lang="zh-cn" itemscope itemtype="http://schema.org/Article">
-		{{ template "chrome/subheader.html" . }}
+{{ template "chrome/header.html" . }}
+    <!-- CONTENT -->   
+      <h1>{{ .Title }} <span class="date">[{{ .Date.Format "2006-02-01" }}]</span></h1>
 
-		{{ $baseurl := .Site.BaseUrl }}
-
-		<section id="main">
-			<div id="site_title">{{ .Site.Title }}</div>
-		  	<div itemprop="name" id="post_title">{{ .Title }}</div>
-		  	<div>
-			    <article itemprop="articleBody" id="content">
-			   		{{ .Content }}
-		    	</article>
-		  	</div>
-		</section>
-
-		{{ template "chrome/meta_aside.html" . }}
-
-        {{ template "chrome/footer.html" }}
+       <div class="post content">
+        {{ .Content }}
+       </div>             
+    <!-- END CONTENT -->
+{{ template "chrome/footer.html" . }}

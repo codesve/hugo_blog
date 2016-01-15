@@ -1,23 +1,24 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="zh"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="zh"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="zh"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh"> <!--<![endif]-->
-
-  <head>
-    <meta charset="UTF-8"/>
+<!doctype html>
+<html lang="en">
+  <head>    
+    <title>本根 - {{ .Title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <base href="{{ .Site.BaseUrl }}">
-    <title> {{ .Title }} - blog.codesve.com </title>
+    {{ template "chrome/includes.html" . }}
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link rel="apple-touch-icon" href="logo.png">
     <link rel="canonical" href="{{ .Permalink }}">
-    {{ if .RSSlink }}<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />{{ end }}
 
-    {{ template "chrome/head_includes.html" . }}
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-</head>
+    <!-- atom & rss feed -->
+    <link href="/rss.xml" type="application/atom+xml" rel="alternate" title="{{ .Site.Title }}">    
+
+  </head>
+  <body>    
+    {{ template "chrome/menu.html" }}
+
+<div class="container">
+  <div class="content">
+
+    <div class="row-fluid post-full">
+      <div class="container content">  

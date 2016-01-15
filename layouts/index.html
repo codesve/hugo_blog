@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="zh-cn"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="zh-cn"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="zh-cn"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn"> <!--<![endif]-->
-
+<html lang="en">
   <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ template "chrome/meta.html" . }}
+    
+    {{ template "chrome/includes.html" . }}
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <base href="{{ .Site.BaseUrl }}">
-    <title>{{ .Site.Title }}</title>
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link rel="apple-touch-icon" href="logo.png">
     <link rel="canonical" href="{{ .Permalink }}">
-    <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 
-    {{ template "chrome/head_includes.html" . }}
+    <!-- atom & rss feed -->
+    <link href="/rss.xml" type="application/atom+xml" rel="alternate" title="{{ .Site.Title }}">    
 
   </head>
 
-  <body lang="zh-cn">
-    {{ template "chrome/subheader.html" . }}
+  <body>    
+    {{ template "chrome/menu.html" }}
 
-    <section id="main" >
-      <div>
-       <div id="site_title">{{ .Site.Title }}</div>
-        {{ range first 10 .Data.Pages }}
-            {{ .Render "summary"}}
+<div class="container">
+  <div class="content">
+
+  <div class="page-header">
+    <h1>文章正在生产……</h1>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span12">
+
+      <ul class="posts">
+        {{ range .Data.Pages }}        
+          <li><span>{{ .Date.Format "2006-02-01" }}</span><p><a href="{{.RelPermalink }}">{{ .Title }}</a></p></li>
         {{ end }}
-      </div>
-    </section>
+      </ul>
+           
+    </div>  
+  </div>
 
-    <aside id="meta"> </aside>
-
-    {{ template "chrome/footer.html" }}
+{{ template "chrome/footer.html" }}

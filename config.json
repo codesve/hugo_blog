@@ -1,5 +1,12 @@
 {
-    "indexes" : { "tag": "tags" },
-    "baseurl" : "http://blog.codesve.com/",
-    "title": "代码是根本"
+    "contentdir": "content",
+    "layoutdir": "layouts",
+    "publishdir": "public",
+    "builddrafts": false,
+    "indexes": {
+       "category": "categories",
+       "tag": "tags"
+    },
+    "baseurl": "http://codesve.com/",
+    "canonifyurls": true
 }
