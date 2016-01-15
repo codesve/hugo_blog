@@ -5,61 +5,157 @@
     <link>http://codesve.com/categories/nothing/</link>
     <description>Recent content in Nothing on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 15 Jan 2016 20:14:03 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2015 20:14:03 +0000</lastBuildDate>
     <atom:link href="http://codesve.com/categories/nothing/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>自建shadowsocks</title>
-      <link>http://codesve.com/build%20ss%20by%20yourself/</link>
-      <pubDate>Fri, 15 Jan 2016 20:14:03 +0000</pubDate>
+      <title>用r.js优化require/backbone前端项目</title>
+      <link>http://codesve.com/use%20r.js%20to%20build%20requirejs%20project/</link>
+      <pubDate>Wed, 24 Jun 2015 20:14:03 +0000</pubDate>
       
-      <guid>http://codesve.com/build%20ss%20by%20yourself/</guid>
+      <guid>http://codesve.com/use%20r.js%20to%20build%20requirejs%20project/</guid>
       <description>
 
-&lt;h1 id=&#34;自建shadowsocks:6be5d61dba33df2a03a898c52bbf4fb2&#34;&gt;自建shadowsocks&lt;/h1&gt;
+&lt;h1 id=&#34;用r-js优化require-backbone前端项目:fa3d289511d2ecb7eb6c4b126c1470eb&#34;&gt;用r.js优化require/backbone前端项目&lt;/h1&gt;
 
-&lt;p&gt;本文通过搬运工VPS花10美元年费建一个专属的shadowsocks服务器，解决科学上网的问题&lt;/p&gt;
+&lt;h2 id=&#34;目的:fa3d289511d2ecb7eb6c4b126c1470eb&#34;&gt;目的&lt;/h2&gt;
 
-&lt;h2 id=&#34;说明:6be5d61dba33df2a03a898c52bbf4fb2&#34;&gt;说明&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;将用RequireJs和BackboneJs开发的WEB项目打包发布；&lt;/li&gt;
+&lt;li&gt;将所有模块的js压缩到一个js文件中；&lt;/li&gt;
+&lt;li&gt;将所有的css压缩到一个css文件中；&lt;/li&gt;
+&lt;li&gt;从而减少网络访问次数，提升用户体验；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;步骤:fa3d289511d2ecb7eb6c4b126c1470eb&#34;&gt;步骤&lt;/h2&gt;
+
+&lt;h3 id=&#34;1-安装node-js:fa3d289511d2ecb7eb6c4b126c1470eb&#34;&gt;1. 安装node.js&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;与GAE方式相比，shadowsocks是真正的安全链接&lt;/li&gt;
-&lt;li&gt;与VPN方式相比，shadowsocks没有明显特征&lt;/li&gt;
-&lt;li&gt;目前GFW对shadowsocks还束手无策&lt;/li&gt;
-&lt;li&gt;shadowsocks原理请参见&lt;a href=&#34;http://zh.wikipedia.org/wiki/Shadowsocks&#34;&gt;wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;直接下载安装即可&lt;a href=&#34;https://nodejs.org/download/&#34; title=&#34;下载NodeJs&#34;&gt;https://nodejs.org/download/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;1-拥有一个paypal国际帐户:6be5d61dba33df2a03a898c52bbf4fb2&#34;&gt;1. 拥有一个Paypal国际帐户&lt;/h2&gt;
+&lt;h3 id=&#34;2-安装requirejs模块:fa3d289511d2ecb7eb6c4b126c1470eb&#34;&gt;2. 安装requireJs模块&lt;/h3&gt;
 
-&lt;p&gt;&lt;em&gt;搬运工VPS需要通过Paypal支付&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+    npm install -g requirejs
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可能需要sudo权限&lt;/p&gt;
+
+&lt;h3 id=&#34;3-安装almond-js:fa3d289511d2ecb7eb6c4b126c1470eb&#34;&gt;3. 安装almond.js&lt;/h3&gt;
+
+&lt;p&gt;在项目根目录下运行以下命令&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+    bower install almond
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;关于almond可以到&lt;a href=&#34;https://github.com/jrburke/almond&#34; title=&#34;almond&#34;&gt;https://github.com/jrburke/almond&lt;/a&gt;了解&lt;/p&gt;
+
+&lt;h3 id=&#34;4-在项目根目录新建一个build-js文件-内容如下:fa3d289511d2ecb7eb6c4b126c1470eb&#34;&gt;4. 在项目根目录新建一个build.js文件，内容如下：&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;
+    /**
+     * r.js config
+     * See all the options and more at:
+     * https://github.com/jrburke/r.js/blob/master/build/example.build.js
+     */
+
+    ({
+    mainConfigFile: &#39;js/main.js&#39;,
+    baseUrl: &#39;js&#39;,
+
+    fileExclusionRegExp: /^(r|build)\.js$/,
+    name: &#39;../bower_components/almond/almond&#39;,
+
+    out: &#39;./dist/js/shop.min.js&#39;,
+
+    optimize: &#39;uglify2&#39;,/*none or uglify2*/
+
+    include: [
+      &#39;main&#39;,
+      &#39;views/FirstView&#39;,
+      &#39;views/TimePeriodView&#39;,
+      &#39;views/WelcomeView&#39;,
+      &#39;views/bath/BathView&#39;,
+      &#39;views/beauty/BeautyView&#39;,
+      &#39;views/store/CommodityView&#39;,
+      &#39;views/store/CommodityDetailView&#39;,
+      &#39;views/cart/CartView&#39;,
+      &#39;views/address/AddressView&#39;,
+      &#39;views/order/OrderView&#39;,
+      &#39;views/evaluate/EvaluateView&#39;,
+      &#39;views/coupon/CouponView&#39;,
+      &#39;views/pay/PayView&#39;
+    ]
+    })
+
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;注册地址: &lt;a href=&#34;http://www.PayPal.com/c2&#34;&gt;http://www.PayPal.com/c2&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;注册后按照提示绑定银联卡&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mainConfigFile&lt;/code&gt;指定requirejs的入口文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;baseUrl&lt;/code&gt;指定requirejs的js目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fileExclusionRegExp&lt;/code&gt;排除规则，满足条件的文件不会被优化&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;name&lt;/code&gt;指定almond所在目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;out&lt;/code&gt;指定优化后的输出文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;optimize&lt;/code&gt;压缩方式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;include&lt;/code&gt;要优化的模块，必须包含main，其它的复制router.js里指定的View文件路径即可&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;2-购买一个搬运工vps:6be5d61dba33df2a03a898c52bbf4fb2&#34;&gt;2. 购买一个搬运工VPS&lt;/h2&gt;
+&lt;h3 id=&#34;5-执行build-js:fa3d289511d2ecb7eb6c4b126c1470eb&#34;&gt;5. 执行build.js&lt;/h3&gt;
 
-&lt;p&gt;&lt;em&gt;这些搬运工VPS是性价比最高的&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+    r.js -o build.js
 
-&lt;ul&gt;
-&lt;li&gt;选购地址: &lt;a href=&#34;https://bandwagonhost.com/cart.php&#34;&gt;https://bandwagonhost.com/cart.php&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;建议选&lt;code&gt;5G PROMO V2&lt;/code&gt;或&lt;code&gt;Micro-128&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;下单时在&lt;code&gt;Billing Cycle&lt;/code&gt;中选择&lt;code&gt;Annually&lt;/code&gt;年付&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;3-安装shadowsocks:6be5d61dba33df2a03a898c52bbf4fb2&#34;&gt;3. 安装shadowsocks&lt;/h2&gt;
+&lt;p&gt;可能需要sudo权限，运行后项目根目录多了个dist文件夹，过程可能报错，根据报错信息处理即可&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;VPS买好后，就可以一键安装shadowsocks了&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;6-合并压缩css文件:fa3d289511d2ecb7eb6c4b126c1470eb&#34;&gt;6. 合并压缩CSS文件&lt;/h3&gt;
 
-&lt;ul&gt;
-&lt;li&gt;搬运工网站的首页进入&lt;code&gt;Client Area&lt;/code&gt; -&amp;gt; &lt;code&gt;Service&lt;/code&gt; -&amp;gt; &lt;code&gt;My Service&lt;/code&gt;，可以看到自己的服务器列表&lt;/li&gt;
-&lt;li&gt;点击&lt;code&gt;KiwiVM Control Panel&lt;/code&gt;按钮，开始管理服务器&lt;/li&gt;
-&lt;li&gt;左边列表拉到最下面，点击&lt;code&gt;Shadowsocks Server&lt;/code&gt;，按提示一键安装，需求等待一会儿&lt;/li&gt;
-&lt;li&gt;安装成功后，按提示使用即可&lt;/li&gt;
-&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+    r.js -o cssIn=css/styles.css out=dist/css/shop.min.css 
 
-&lt;p&gt;** 其它信息自行google **&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;styles.css&lt;/code&gt;中@import了所有css文件&lt;/p&gt;
+
+&lt;h3 id=&#34;7-修改index-html:fa3d289511d2ecb7eb6c4b126c1470eb&#34;&gt;7. 修改index.html&lt;/h3&gt;
+
+&lt;p&gt;将&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;css/styles.css&amp;quot;&amp;gt; 
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改为&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;dist/css/shop.min.css&amp;quot;&amp;gt; 
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;将&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;
+    &amp;lt;script data-main=&amp;quot;js/main&amp;quot; src=&amp;quot;libs/require/require.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改为&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;dist/js/shop.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;8-正常部署:fa3d289511d2ecb7eb6c4b126c1470eb&#34;&gt;8. 正常部署&lt;/h3&gt;
 
 &lt;p&gt;-end-&lt;/p&gt;
 </description>
