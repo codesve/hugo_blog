@@ -146,6 +146,17 @@ footer {
   font-size: 1.7em;  
 }
 
+img.sve-logo {
+    float: left;
+    width: 66px;
+    margin-top: 22px;
+    margin-right: 10px;
+}
+
+img.sve-logo:hover {
+  opacity: 0.72;
+}
+
 .brand {  
   background-color: #90B0CC;
   display: block;  
