@@ -1,7 +1,0 @@
-[submodule "_site"]
-	path = _site
-	url = git@github.com:alexandre-normand/alexandre-normand.git
-[submodule "public"]
-	path = public
-	url = git@github.com:alexandre-normand/alexandre-normand.git
-	branch = gh-pages
